@@ -64,12 +64,12 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.2.11.Final</version>
+			<version>6.0.0.Alpha9</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.44</version>
+			<version>8.0.26</version>
 		</dependency>
  
 		<dependency>
@@ -90,4 +90,3 @@
 	</build>
 
 </project>
-
