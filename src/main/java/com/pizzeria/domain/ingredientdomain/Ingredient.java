@@ -21,7 +21,7 @@ public class  Ingredient {
     
     @Override
 	public boolean equals(Object obj)	{
-		if (!(obj instanceof Entity)) {
+		if (!(obj instanceof Ingredient)) {
 			return false;
 		}
 		Ingredient tmp = (Ingredient)obj;

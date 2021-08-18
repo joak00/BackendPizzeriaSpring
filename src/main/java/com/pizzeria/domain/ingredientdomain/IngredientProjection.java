@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public interface IngredientProjection {
 	
-	UUID getId();
-	String getName();
+	public UUID getId();
+	public String getName();
 	public Double getPrice();
 	
 }

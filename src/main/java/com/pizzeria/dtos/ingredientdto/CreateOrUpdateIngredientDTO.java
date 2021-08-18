@@ -1,4 +1,4 @@
-package dtos.ingredientdto;
+package com.pizzeria.dtos.ingredientdto;
 
 public class CreateOrUpdateIngredientDTO {
 	public String name;
