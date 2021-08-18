@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BackendPizzeriaSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendPizzeriaSpringApplication.class, args);
+		SpringApplication.run(BackendPizzeriaSpringApplication.class, args);	
 	}
 
 }
