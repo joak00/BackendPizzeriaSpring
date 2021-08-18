@@ -1,7 +1,7 @@
 package com.pizzeria.domain.ingredientdomain;
 
 
-import java.util.UUID;
+import java.util.UUID;  
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,5 +18,19 @@ public class  Ingredient {
     
     @Column (nullable=false, name ="price")
     public Double price;
+    
+    @Override
+	public boolean equals(Object obj)	{
+		if (!(obj instanceof Entity)) {
+			return false;
+		}
+		Ingredient tmp = (Ingredient)obj;
+		return tmp.id.equals(this.id);
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.id.toString().hashCode();
+	}
     
 }
