@@ -1,10 +1,15 @@
 package com.pizzeria.dtos.ingredientdto;
 
-import java.util.UUID;
+import java.util.UUID; 
 
-public class IngredientDTO {
-	public UUID id;
-	public String name;
-	public Double price;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter @Setter @NoArgsConstructor public class IngredientDTO {
+	private UUID id;
+	private String name;
+	private Double price;
 	
 }

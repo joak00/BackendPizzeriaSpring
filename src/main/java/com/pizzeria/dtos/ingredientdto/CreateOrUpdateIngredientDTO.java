@@ -1,6 +1,10 @@
 package com.pizzeria.dtos.ingredientdto;
 
-public class CreateOrUpdateIngredientDTO {
-	public String name;
-	public Double price;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter @Setter @NoArgsConstructor public class CreateOrUpdateIngredientDTO {
+	private String name;
+	private Double price;
 }
