@@ -27,39 +27,7 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 		this.ingredientRepositoryWrite = ingredientRepositoryWrite;
 	}
 	
-	@Override
-	public IngredientDTO add(CreateOrUpdateIngredientDTO dto) {
-		IngredientDTO ingredientDTO = this.modelMapper.map(dto, IngredientDTO.class);
-		ingredientDTO.setId(UUID.randomUUID());
-		return ingredientDTO;
-	}
-
-	@Override
-	public IngredientDTO get(UUID id) {
-		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
-		IngredientDTO ingredientDTO = this.modelMapper.map(ingredient, IngredientDTO.class);
-		return ingredientDTO;
-	}
-
-	@Override
-	public void update(UUID id, CreateOrUpdateIngredientDTO dto) {
-		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
-		ingredient.setName(dto.getName());
-		ingredient.setPrice(dto.getPrice());
-		
-	}
-
-
-	@Override
-	public void delete(UUID id) {
-		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
-		this.ingredientRepositoryWrite.delete(ingredient);
-		
-	}
-
-	@Override
-	public List<IngredientProjection> getAll(String name, int page, int size) {
-		return this.ingredientRepositoryRead.getAll(name, page, size);
-	}
+	
+	
 
 }
