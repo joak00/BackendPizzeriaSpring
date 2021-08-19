@@ -9,7 +9,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserJPARepository extends JpaRepository<User, UUID> {
         @Query("SELECT p.id as id, p.name as name, p.lastname as lastname, p.email as email, p.password as password FROM User p WHERE (:name is NULL OR name LIKE %:name%)")
         List<UserProjection> findByCriteria(
