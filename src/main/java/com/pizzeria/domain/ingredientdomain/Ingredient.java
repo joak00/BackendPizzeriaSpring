@@ -1,23 +1,26 @@
 package com.pizzeria.domain.ingredientdomain;
 
-
 import java.util.UUID;  
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import org.hibernate.annotations.Type;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
-public class  Ingredient {
+@Getter @Setter @NoArgsConstructor public class  Ingredient {
 	@Id @Type (type="uuid-char")
-    public UUID id;
+	private UUID id;
 	
     @Column(nullable = false, name ="name", unique = true)
-    public  String name;
+    private  String name;
     
     @Column (nullable=false, name ="price")
-    public Double price;
+    private Double price;
     
     @Override
 	public boolean equals(Object obj)	{

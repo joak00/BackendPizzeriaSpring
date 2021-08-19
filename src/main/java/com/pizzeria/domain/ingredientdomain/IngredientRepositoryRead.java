@@ -8,4 +8,5 @@ public interface IngredientRepositoryRead {
 
 	public Optional<Ingredient> findById(UUID id);
 	public List<IngredientProjection> getAll (String name, int page, int size);
+	
 }
