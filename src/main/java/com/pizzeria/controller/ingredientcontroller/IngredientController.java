@@ -1,5 +1,7 @@
 package com.pizzeria.controller.ingredientcontroller;
 
+import java.util.UUID;
+
 import com.pizzeria.application.ingredientapplication.IngredientApplication;
 import com.pizzeria.dtos.ingredientdto.CreateOrUpdateIngredientDTO;
 import com.pizzeria.dtos.ingredientdto.IngredientDTO;
@@ -18,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import com.pizzeria.application.ingredientapplication.IngredientApplication;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -36,6 +37,32 @@ public class IngredientController {
     public ResponseEntity<?> create(@RequestBody final CreateOrUpdateIngredientDTO dto) {
         IngredientDTO ingredientDTO = this.ingredientApplication.add(dto);
         return ResponseEntity.status(201).body(ingredientDTO);
+    }
+
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
+    public ResponseEntity<?> get(@PathVariable UUID id){
+        IngredientDTO ingredientDTO = this.ingredientApplication.get(id);
+        return ResponseEntity.ok(ingredientDTO);
+    }
+
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getAll(
+        @RequestParam(required = false) String name,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "10") int size
+    ){
+        return ResponseEntity.status(200).body(this.ingredientApplication.getAll(name, page, size));
+    }
+ 
+    @DeleteMapping(path = "/{id}")
+    void delete(@PathVariable UUID id) {
+        this.ingredientApplication.delete(id);
+    }
+
+	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
+    public ResponseEntity<?> update(@PathVariable UUID id, @RequestBody CreateOrUpdateIngredientDTO dto) {
+        this.ingredientApplication.update(id, dto);
+        return ResponseEntity.ok(dto);
     }
 	
 }

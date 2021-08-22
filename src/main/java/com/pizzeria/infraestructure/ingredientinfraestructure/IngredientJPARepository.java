@@ -12,6 +12,9 @@ import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.ingredientdomain.IngredientProjection;
 
 public interface IngredientJPARepository extends JpaRepository<Ingredient, UUID>{
-	@Query("SELECT id, name, price FROM Ingredient WHERE (:name is NULL OR name LIKE %:name%)")
-	List<IngredientProjection> findByName(@Param("name") String name, Pageable pageable);
+	@Query("""
+	SELECT i.id as id, i.name as name, i.price as price 
+	FROM Ingredient i 
+	WHERE (:name is NULL OR name LIKE %:name%)""")
+	List<IngredientProjection> findByCriteria(@Param("name") String name, Pageable pageable);
 }

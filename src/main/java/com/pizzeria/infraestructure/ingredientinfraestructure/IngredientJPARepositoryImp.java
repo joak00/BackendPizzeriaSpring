@@ -15,12 +15,12 @@ import com.pizzeria.domain.ingredientdomain.IngredientRepositoryRead;
 import com.pizzeria.domain.ingredientdomain.IngredientRepositoryWrite;
 
 @Repository
-public class IngredientRepositoryImp implements IngredientRepositoryRead, IngredientRepositoryWrite {
+public class IngredientJPARepositoryImp implements IngredientRepositoryRead, IngredientRepositoryWrite {
 
 	private final IngredientJPARepository ingredientJPARepository;
 	
 	@Autowired
-    public IngredientRepositoryImp(final IngredientJPARepository ingredientJPARepository) {
+    public IngredientJPARepositoryImp(final IngredientJPARepository ingredientJPARepository) {
         this.ingredientJPARepository = ingredientJPARepository;
     }
 	
@@ -47,7 +47,7 @@ public class IngredientRepositoryImp implements IngredientRepositoryRead, Ingred
 
 	@Override
 	public List<IngredientProjection> getAll(String name, int page, int size) {
-		return this.ingredientJPARepository.findByName(name, 
+		return this.ingredientJPARepository.findByCriteria(name, 
 				PageRequest.of(page, size, Sort.by("name").descending()));
 	}
 
