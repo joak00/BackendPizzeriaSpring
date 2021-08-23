@@ -3,7 +3,6 @@ package com.pizzeria.core;
 import java.util.Set;
 import java.util.UUID;
  
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.ConstraintViolation;
