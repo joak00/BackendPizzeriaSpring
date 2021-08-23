@@ -12,7 +12,7 @@ public interface UserApplication {
 
     public UserDTO get(UUID id);
 
-    public void update(UUID id, CreateOrUpdateUserDTO dtos);
+    public void update(UUID id, CreateOrUpdateUserDTO dto);
 
     public void delete(UUID id);
 
