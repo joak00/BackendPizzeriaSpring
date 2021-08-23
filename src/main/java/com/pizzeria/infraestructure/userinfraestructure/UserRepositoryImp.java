@@ -26,6 +26,7 @@ public class UserRepositoryImp implements UserRepository {
     @Override
     public void add(User user) {
         this.userJPARepository.save(user);
+        //controlar excepción, no validar
     }
 
     @Override

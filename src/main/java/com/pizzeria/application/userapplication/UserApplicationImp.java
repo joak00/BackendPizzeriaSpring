@@ -18,18 +18,25 @@ public class UserApplicationImp implements UserApplication {
     @Autowired
     public UserApplicationImp(final UserRepository userRepository) {
         this.userRepository = userRepository;
+        //log
     }
 
     @Override
     public UserDTO add(CreateOrUpdateUserDTO dto) {
         User user = UserService.create(dto);
+        //mapper
         this.userRepository.add(user);
         return UserService.createDTO(user);
+        //Validar que el usuario no existe select count (*) from user where name = ?
+        //Validar que no está el nombre duplicado
+        //log
+        //mapper
     }
 
     @Override
     public UserDTO get(UUID id) {
         User user = this.userRepository.findById(id).orElseThrow();
+        //mapper
         return UserService.createDTO(user);
     }
 
