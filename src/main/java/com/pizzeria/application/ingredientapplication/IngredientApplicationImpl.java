@@ -51,11 +51,10 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 	}
 
 	@Override
-	public void update(UUID id, CreateOrUpdateIngredientDTO dto) {
-		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
-		ingredient.setName(dto.getName());
-		ingredient.setPrice(dto.getPrice());
-		ingredient.validate(); //No estoy seguro
+	public void update(UUID id, CreateOrUpdateIngredientDTO dto) {  
+		Ingredient ingredient = this.modelMapper.map(dto, Ingredient.class);
+		ingredient.setId(id);
+		ingredient.validate();
 		this.ingredientRepositoryWrite.update(ingredient);
 	}
 
