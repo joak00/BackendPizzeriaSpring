@@ -2,6 +2,8 @@ package com.pizzeria.controller.ingredientcontroller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import com.pizzeria.application.ingredientapplication.IngredientApplication;
 import com.pizzeria.dtos.ingredientdto.CreateOrUpdateIngredientDTO;
 import com.pizzeria.dtos.ingredientdto.IngredientDTO;
@@ -19,8 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 
-
+@Validated
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("api/v1/ingredients")
@@ -34,7 +37,7 @@ public class IngredientController {
 	}
 	
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> create(@RequestBody final CreateOrUpdateIngredientDTO dto) {
+    public ResponseEntity<?> create(@Valid @RequestBody final CreateOrUpdateIngredientDTO dto) {
         IngredientDTO ingredientDTO = this.ingredientApplication.add(dto);
         return ResponseEntity.status(201).body(ingredientDTO);
     }
@@ -61,6 +64,7 @@ public class IngredientController {
 
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
     public ResponseEntity<?> update(@PathVariable UUID id, @RequestBody CreateOrUpdateIngredientDTO dto) {
+        //dto.validate(); CreateDTO debería extender de EntityBase?
         this.ingredientApplication.update(id, dto);
         return ResponseEntity.ok(dto);
     }

@@ -32,10 +32,14 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 	
 	@Override
     public IngredientDTO add(CreateOrUpdateIngredientDTO dto) {
-        Ingredient  ingredient= this.modelMapper.map(dto, Ingredient.class);
+        Ingredient  ingredient = this.modelMapper.map(dto, Ingredient.class);
         ingredient.setId(UUID.randomUUID());
+		//TODO: Validar que la pizza no existe(nombre no duplicado) | select count (*) from ingredientes where name = ?
+		//If count > 0 = error. 
         ingredient.validate();
-        this.ingredientRepositoryWrite.add(ingredient);
+		this.ingredientRepositoryWrite.add(ingredient);
+		//log OK
+		log.info("Ingrediente: "+ingredient.getName() +" añadido. ");
         return this.modelMapper.map(ingredient,IngredientDTO.class);  
     }
 
@@ -51,6 +55,7 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
 		ingredient.setName(dto.getName());
 		ingredient.setPrice(dto.getPrice());
+		ingredient.validate(); //No estoy seguro
 		this.ingredientRepositoryWrite.update(ingredient);
 	}
 

@@ -27,6 +27,7 @@ public class IngredientJPARepositoryImp implements IngredientRepositoryRead, Ing
 	@Override
 	public void add(Ingredient ingredient) {
 		this.ingredientJPARepository.save(ingredient);
+		//capturar excepción 
 	}
 
 	@Override
