@@ -6,6 +6,7 @@ import com.pizzeria.application.userapplication.UserApplication;
 import com.pizzeria.dto.userdtos.CreateOrUpdateUserDTO;
 import com.pizzeria.dto.userdtos.UserDTO;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,6 +34,7 @@ public class UserController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> create(@RequestBody final CreateOrUpdateUserDTO dto) {
+        dto.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
         UserDTO userDTO = this.userApplication.add(dto);
         return ResponseEntity.status(201).body(userDTO);
     }

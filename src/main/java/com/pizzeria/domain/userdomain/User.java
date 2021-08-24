@@ -26,20 +26,23 @@ public @Getter @Setter @NoArgsConstructor class User extends EntityBase {
     public UUID id;
 
     @NotBlank
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     public String name;
 
     @NotBlank
-    @Column(nullable = false)
+    @Column
     public String lastname;
 
     @NotNull
     @Email
-    @Column(nullable = false)
+    @Column
     public String email;
 
     @NotNull
-    @Column(nullable = false)
+    @Column
     public String password;
 
+    @NotNull
+    @Column
+    public Rol rol = Rol.ROL_USER;
 }
