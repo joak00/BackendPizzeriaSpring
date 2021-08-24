@@ -1,10 +1,13 @@
 package com.pizzeria.domain.ingredientdomain;
 
-import java.util.UUID;  
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import org.hibernate.annotations.Type;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.pizzeria.core.EntityBase;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,28 +15,17 @@ import lombok.Setter;
 
 
 @Entity
-@Getter @Setter @NoArgsConstructor public class  Ingredient {
-	@Id @Type (type="uuid-char")
-	private UUID id;
+@Table(name = "ingredients")
+@Getter @Setter @NoArgsConstructor public class  Ingredient extends EntityBase {
 	
+	
+    @NotBlank
     @Column(nullable = false, name ="name", unique = true)
     private  String name;
     
+    @NotNull
     @Column (nullable=false, name ="price")
-    private Double price;
-    
-    @Override
-	public boolean equals(Object obj)	{
-		if (!(obj instanceof Ingredient)) {
-			return false;
-		}
-		Ingredient tmp = (Ingredient)obj;
-		return tmp.id.equals(this.id);
-	}
-	
-	@Override
-	public int hashCode() {
-		return this.id.toString().hashCode();
-	}
-    
+    private BigDecimal price;
+
+
 }
