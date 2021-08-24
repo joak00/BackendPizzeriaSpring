@@ -8,5 +8,5 @@ public interface UserRepositoryRead {
 
     public List<UserProjection> getAll(String name, int page, int size);
 
-    public Optional <User> findById(UUID id);
+    public Optional<User> findById(UUID id);
 }

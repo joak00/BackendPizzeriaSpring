@@ -1,23 +1,18 @@
 package com.pizzeria.dto.commentdtos;
 
-import java.util.Date;
-import java.util.UUID;
-
 import javax.validation.constraints.NotBlank;
-
+ 
+import org.springframework.validation.annotation.Validated;
+ 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
-public class CommentDTO {
-    private UUID id;
+ 
+@Validated
+@Getter @Setter @NoArgsConstructor public class CreateOrUpdateCommentDTO {
+ 
     @NotBlank
     private String text;
-    @NotBlank
-    private Date date;
     @NotBlank
     private int rating;
 }
