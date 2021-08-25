@@ -1,6 +1,9 @@
 package com.pizzeria.controller.usercontroller;
 
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.pizzeria.application.userapplication.UserApplication;
 import com.pizzeria.dtos.userdtos.CreateOrUpdateUserDTO;
@@ -18,8 +21,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -35,8 +44,8 @@ public class UserController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> create(@RequestBody final CreateOrUpdateUserDTO dto) {
         dto.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
-        UserDTO userDTO = this.userApplication.add(dto);
-        return ResponseEntity.status(201).body(userDTO);
+        /*UserDTO userDTO*/ this.userApplication.add(dto);
+        return ResponseEntity.status(201).body(getJWTToken(dto.getName()));
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
@@ -61,4 +70,25 @@ public class UserController {
             @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
         return ResponseEntity.status(200).body(this.userApplication.getAll(name, page, size));
     }
+
+    private String getJWTToken(String username) {
+		String secretKey = "mySecretKey";
+		List<GrantedAuthority> grantedAuthorities = AuthorityUtils
+				.commaSeparatedStringToAuthorityList("ROL_USER");
+		
+		String token = Jwts
+				.builder()
+				.setId("softtekJWT")
+				.setSubject(username)
+				.claim("authorities",
+						grantedAuthorities.stream()
+								.map(GrantedAuthority::getAuthority)
+								.collect(Collectors.toList()))
+				.setIssuedAt(new Date(System.currentTimeMillis()))
+				.setExpiration(new Date(System.currentTimeMillis() + 600000))
+				.signWith(SignatureAlgorithm.HS512,
+						secretKey.getBytes()).compact();
+
+		return "Bearer " + token;
+	}
 }

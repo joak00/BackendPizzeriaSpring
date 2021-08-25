@@ -68,7 +68,6 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.0.13.Final</version>
         </dependency>
             <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -109,7 +108,23 @@
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
 	        <version>0.4</version>
-        </dependency>   
+        </dependency>
+        <!--Token-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -120,4 +135,3 @@
         </plugins>
     </build>
 </project>
-
