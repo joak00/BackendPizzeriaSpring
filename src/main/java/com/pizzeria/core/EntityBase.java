@@ -32,7 +32,7 @@ public @NoArgsConstructor @Getter @Setter abstract class EntityBase {
         if (!violations.isEmpty()) {
         throw new ConstraintViolationException(violations);}
     }
-
+    
     @Override
     public boolean equals(Object obj)    {
         if (!(obj instanceof EntityBase)) {
