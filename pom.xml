@@ -109,7 +109,13 @@
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
 	        <version>0.4</version>
-        </dependency>   
+        </dependency>
+        <!--Logger -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
