@@ -21,28 +21,25 @@ import lombok.Setter;
 @Entity
 @Table(name = "users")
 public @Getter @Setter @NoArgsConstructor class User extends EntityBase {
-    @Id
-    @Type(type = "uuid-char")
-    public UUID id;
-
+  
     @NotBlank
     @Column(unique = true)
-    public String name;
+    private String name;
 
     @NotBlank
     @Column
-    public String lastname;
+    private String lastname;
 
     @NotNull
     @Email
     @Column
-    public String email;
+    private String email;
 
     @NotNull
     @Column
-    public String password;
+    private String password;
 
     @NotNull
     @Column
-    public Rol rol = Rol.ROL_USER;
+    private Rol rol = Rol.ROL_USER;
 }

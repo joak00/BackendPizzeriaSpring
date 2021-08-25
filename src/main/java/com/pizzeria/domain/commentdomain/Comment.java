@@ -6,10 +6,14 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.pizzeria.core.EntityBase;
+import com.pizzeria.domain.userdomain.User;
 
 import org.hibernate.annotations.Type;
 
@@ -18,25 +22,39 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "comment")
-
+@Table(name = "comments")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Comment extends EntityBase {
-    @Id
+
+    @NotBlank
+    @Column(nullable = false, name = "text")
+    private String text;
+
+    @NotNull
+    @Column(nullable = false, name = "date")
+    private Date date;
+
+    @NotNull
+    @Column(nullable = false, name = "rating")
+    private int rating;
+
+   
     @Type(type = "uuid-char")
-    public UUID id;
+    @Column(name="user_id")
+    private UUID userId;
 
-    @NotBlank
-    @Column(nullable = false)
-    public String text;
+  
+    @NotNull
+    @Type(type = "uuid-char")
+    @Column(name="pizza_id", nullable = false)
+    private UUID pizzaId;
 
-    @NotBlank
-    @Column(nullable = false)
-    public Date date;
+    @Type(type = "uuid-char")
+    private @ManyToOne @JoinColumn (name ="user_id", insertable = false, updatable=false) User user;
 
-    @NotBlank
-    @Column(nullable = false)
-    public int rating;
+    //@NotNull
+    //private @ManyToOne @JoinColumn (name="pizza_id", insertable = false, updatable=false) Pizza pizza;
+
 }
