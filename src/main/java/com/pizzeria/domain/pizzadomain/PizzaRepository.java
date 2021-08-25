@@ -1,8 +1,10 @@
 package com.pizzeria.domain.pizzadomain;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-public class PizzaRepository {
+public interface PizzaRepository {
     
     public void add(Pizza pizza);
     public Optional<Pizza> findById(UUID id);
