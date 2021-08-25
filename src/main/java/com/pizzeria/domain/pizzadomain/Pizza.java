@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.pizzeria.core.EntityBase;
 import com.pizzeria.domain.commentdomain.Comment;
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 
@@ -24,7 +25,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "pizzas")
-@Getter @Setter @NoArgsConstructor public class Pizza {
+@Getter @Setter @NoArgsConstructor public class Pizza extends EntityBase{
     
     @NotBlank
     @Column(nullable = false, name ="name", unique = true)
