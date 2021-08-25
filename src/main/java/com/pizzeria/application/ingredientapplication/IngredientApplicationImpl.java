@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.ingredientdomain.IngredientProjection;
+import com.pizzeria.domain.ingredientdomain.IngredientRepository;
 import com.pizzeria.domain.ingredientdomain.IngredientRepositoryRead;
 import com.pizzeria.domain.ingredientdomain.IngredientRepositoryWrite;
 import com.pizzeria.dtos.ingredientdto.CreateOrUpdateIngredientDTO;
@@ -19,14 +20,12 @@ import com.pizzeria.dtos.ingredientdto.IngredientDTO;
 public class IngredientApplicationImpl  implements IngredientApplication {
 
 	private final ModelMapper modelMapper = new ModelMapper();
-	private final IngredientRepositoryRead ingredientRepositoryRead;
-	private final IngredientRepositoryWrite ingredientRepositoryWrite;
+	private final IngredientRepository ingredientRepository;
 	private final Logger log;
 	
 	@Autowired
-	public IngredientApplicationImpl (final Logger log, final IngredientRepositoryRead ingredientRepositoryRead, final IngredientRepositoryWrite ingredientRepositoryWrite ) {
-		this.ingredientRepositoryRead = ingredientRepositoryRead;
-		this.ingredientRepositoryWrite = ingredientRepositoryWrite;
+	public IngredientApplicationImpl (final Logger log, final IngredientRepository ingredientRepository) {
+		this.ingredientRepository = ingredientRepository;
 		this.log = log;
 	}
 	
@@ -37,7 +36,7 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 		//TODO: Validar que la pizza no existe(nombre no duplicado) | select count (*) from ingredientes where name = ?
 		//If count > 0 = error. 
         ingredient.validate();
-		this.ingredientRepositoryWrite.add(ingredient);
+		this.ingredientRepository.add(ingredient);
 		//log OK
 		log.info("Ingrediente: "+ingredient.getName() +" añadido. ");
         return this.modelMapper.map(ingredient,IngredientDTO.class);  
@@ -45,7 +44,7 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 
 	@Override
 	public IngredientDTO get(UUID id) {
-		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
+		Ingredient ingredient = this.ingredientRepository.findById(id).orElseThrow();
 		IngredientDTO ingredientDTO = this.modelMapper.map(ingredient, IngredientDTO.class);
 		return ingredientDTO;
 	}
@@ -55,19 +54,19 @@ public class IngredientApplicationImpl  implements IngredientApplication {
 		Ingredient ingredient = this.modelMapper.map(dto, Ingredient.class);
 		ingredient.setId(id);
 		ingredient.validate();
-		this.ingredientRepositoryWrite.update(ingredient);
+		this.ingredientRepository.update(ingredient);
 	}
 
 
 	@Override
 	public void delete(UUID id) {
-		Ingredient ingredient = this.ingredientRepositoryRead.findById(id).orElseThrow();
-		this.ingredientRepositoryWrite.delete(ingredient);
+		Ingredient ingredient = this.ingredientRepository.findById(id).orElseThrow();
+		this.ingredientRepository.delete(ingredient);
 	}
 
 	@Override
 	public List<IngredientProjection> getAll(String name, int page, int size) {
-		return this.ingredientRepositoryRead.getAll(name, page, size);
+		return this.ingredientRepository.getAll(name, page, size);
 	}
 	
 

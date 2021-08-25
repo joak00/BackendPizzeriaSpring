@@ -14,15 +14,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.pizzeria.domain.commentdomain.Comment;
-import com.pizzeria.domain.imagedomain.FileEntity;
 import com.pizzeria.domain.ingredientdomain.Ingredient;
+
+import org.apache.http.entity.FileEntity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "pizza")
+@Table(name = "pizzas")
 @Getter @Setter @NoArgsConstructor public class Pizza {
     
     @NotBlank
