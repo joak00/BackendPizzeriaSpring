@@ -3,6 +3,7 @@ package com.pizzeria.application.userapplication;
 import java.util.List;
 import java.util.UUID;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class UserApplicationImp implements UserApplication {
         // TODO: Validar que la pizza no existe(nombre no duplicado) | select count (*)
         // from useres where name = ?
         // If count > 0 = error.
+        user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
         user.validate();
         this.userRepositoryWrite.add(user);
         // log OK
