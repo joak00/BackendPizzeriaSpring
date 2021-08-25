@@ -1,7 +1,10 @@
-package com.pizzeria.dto.commentdtos;
+package com.pizzeria.dtos.commentdtos;
 
 import javax.validation.constraints.NotBlank;
- 
+import javax.validation.constraints.NotNull;
+
+import com.pizzeria.domain.userdomain.User;
+
 import org.springframework.validation.annotation.Validated;
  
 import lombok.Getter;
@@ -13,6 +16,8 @@ import lombok.Setter;
  
     @NotBlank
     private String text;
-    @NotBlank
+    @NotNull
     private int rating;
+    
+    private User user;
 }

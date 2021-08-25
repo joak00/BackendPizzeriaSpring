@@ -1,9 +1,12 @@
-package com.pizzeria.dto.commentdtos;
+package com.pizzeria.dtos.commentdtos;
 
 import java.util.Date;
 import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.pizzeria.domain.userdomain.User;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +19,9 @@ public class CommentDTO {
     private UUID id;
     @NotBlank
     private String text;
-    @NotBlank
+    @NotNull
     private Date date;
-    @NotBlank
+    @NotNull
     private int rating;
+    private User user;
 }

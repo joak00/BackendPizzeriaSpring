@@ -1,4 +1,4 @@
-package com.pizzeria.dto.userdtos;
+package com.pizzeria.dtos.userdtos;
 
 import com.pizzeria.domain.userdomain.Rol;
 
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 public @Getter @Setter @NoArgsConstructor class CreateOrUpdateUserDTO {
-    public String name;
-    public String lastname;
-    public String email;
-    public String password;
-    public Rol rol = Rol.ROL_USER;
+    private String name;
+    private String lastname;
+    private String email;
+    private String password;
+    private Rol rol = Rol.ROL_USER;
 }

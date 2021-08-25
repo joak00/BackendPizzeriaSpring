@@ -3,8 +3,8 @@ package com.pizzeria.controller.usercontroller;
 import java.util.UUID;
 
 import com.pizzeria.application.userapplication.UserApplication;
-import com.pizzeria.dto.userdtos.CreateOrUpdateUserDTO;
-import com.pizzeria.dto.userdtos.UserDTO;
+import com.pizzeria.dtos.userdtos.CreateOrUpdateUserDTO;
+import com.pizzeria.dtos.userdtos.UserDTO;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;

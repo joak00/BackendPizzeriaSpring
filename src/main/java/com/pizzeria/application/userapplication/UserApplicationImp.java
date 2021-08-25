@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import com.pizzeria.domain.userdomain.User;
 import com.pizzeria.domain.userdomain.UserProjection;
 import com.pizzeria.domain.userdomain.UserRepositoryWrite;
+import com.pizzeria.dtos.userdtos.CreateOrUpdateUserDTO;
+import com.pizzeria.dtos.userdtos.UserDTO;
 import com.pizzeria.domain.userdomain.UserRepositoryRead;
-import com.pizzeria.dto.userdtos.CreateOrUpdateUserDTO;
-import com.pizzeria.dto.userdtos.UserDTO;
 
 @Service
 public class UserApplicationImp implements UserApplication {

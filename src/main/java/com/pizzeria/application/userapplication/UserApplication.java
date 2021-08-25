@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.UUID;
 
 import com.pizzeria.domain.userdomain.UserProjection;
-import com.pizzeria.dto.userdtos.CreateOrUpdateUserDTO;
-import com.pizzeria.dto.userdtos.UserDTO;
+import com.pizzeria.dtos.userdtos.CreateOrUpdateUserDTO;
+import com.pizzeria.dtos.userdtos.UserDTO;
 
 public interface UserApplication {
     public UserDTO add(CreateOrUpdateUserDTO dto);
