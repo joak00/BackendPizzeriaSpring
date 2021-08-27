@@ -11,11 +11,11 @@ import org.springframework.stereotype.Repository;
 
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.ingredientdomain.IngredientProjection;
-import com.pizzeria.domain.ingredientdomain.IngredientRepositoryRead;
-import com.pizzeria.domain.ingredientdomain.IngredientRepositoryWrite;
+import com.pizzeria.domain.ingredientdomain.IngredientRepository;
+
 
 @Repository
-public class IngredientJPARepositoryImp implements IngredientRepositoryRead, IngredientRepositoryWrite {
+public class IngredientJPARepositoryImp implements IngredientRepository {
 
 	private final IngredientJPARepository ingredientJPARepository;
 	
@@ -51,5 +51,11 @@ public class IngredientJPARepositoryImp implements IngredientRepositoryRead, Ing
 		return this.ingredientJPARepository.findByCriteria(name, 
 				PageRequest.of(page, size, Sort.by("name").descending()));
 	}
+
+	@Override
+    public boolean exists(String name) {
+        return this.ingredientJPARepository.exists(name);
+    }
+
 
 }

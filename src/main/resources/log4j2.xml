@@ -49,7 +49,7 @@
     </Appenders>
     <Loggers>
         <Root level="DEBUG" includeLocation="true">
-            <Appender-ref level="ERROR" ref="ConsolePrint"/>
+            <Appender-ref level="INFO" ref="ConsolePrint"/>
             <Appender-ref ref="RollingFileDebug"/>
             <Appender-ref ref="RollingFileInfo"/>
             <Appender-ref ref="RollingFileError"/>

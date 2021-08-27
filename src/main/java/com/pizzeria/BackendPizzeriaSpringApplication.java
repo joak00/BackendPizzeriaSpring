@@ -27,7 +27,7 @@ public class BackendPizzeriaSpringApplication {
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
-				.anyRequest().authenticated();
+				.anyRequest().authenticated(); 
 		}
 	}
 

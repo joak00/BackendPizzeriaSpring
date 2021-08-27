@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.pizzeria.core.EntityBase;
 import com.pizzeria.domain.commentdomain.Comment;
@@ -31,9 +32,10 @@ import lombok.Setter;
     @Column(nullable = false, name ="name", unique = true)
     private  String name;
     
-    private FileEntity image;
+    
+    /*private com.pizzeria.domain.imagedomain.FileEntity image;*/
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false, name ="price")
     private BigDecimal price;
 
