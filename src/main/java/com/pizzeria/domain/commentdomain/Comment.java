@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.pizzeria.core.EntityBase;
+import com.pizzeria.domain.pizzadomain.Pizza;
 import com.pizzeria.domain.userdomain.User;
 
 import org.hibernate.annotations.Type;
@@ -50,10 +51,10 @@ public class Comment extends EntityBase {
     @Column(name="pizza_id", nullable = false)
     private UUID pizzaId;
 
-    @Type(type = "uuid-char")
+    
     private @ManyToOne @JoinColumn (name ="user_id", insertable = false, updatable=false) User user;
 
-    //@NotNull
-    //private @ManyToOne @JoinColumn (name="pizza_id", insertable = false, updatable=false) Pizza pizza;
+    @NotNull
+    private @ManyToOne @JoinColumn (name="pizza_id", insertable = false, updatable=false) Pizza pizza;
 
 }

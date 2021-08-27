@@ -24,7 +24,7 @@ public class UserApplicationImp implements UserApplication {
 
     @Autowired
     public UserApplicationImp(final UserRepositoryRead userRepositoryRead,
-            final UserRepositoryWrite userRepositoryWrite) {
+                            final UserRepositoryWrite userRepositoryWrite) {
         this.userRepositoryRead = userRepositoryRead;
         this.userRepositoryWrite = userRepositoryWrite;
     }
