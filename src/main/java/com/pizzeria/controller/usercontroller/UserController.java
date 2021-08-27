@@ -6,8 +6,8 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.pizzeria.application.userapplication.UserApplication;
-import com.pizzeria.dtos.userdtos.CreateOrUpdateUserDTO;
-import com.pizzeria.dtos.userdtos.UserDTO;
+import com.pizzeria.dtos.userdto.CreateOrUpdateUserDTO;
+import com.pizzeria.dtos.userdto.UserDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
