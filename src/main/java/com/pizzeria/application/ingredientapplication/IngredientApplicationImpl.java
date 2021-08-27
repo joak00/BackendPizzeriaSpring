@@ -24,8 +24,8 @@ public class IngredientApplicationImpl  extends ApplicationBase<Ingredient, UUID
 	
 	@Autowired
 	public IngredientApplicationImpl (final ModelMapper modelMapper, 
-	final Logger log, 
-	final IngredientRepository ingredientRepository ) {
+									  final Logger log, 
+									  final IngredientRepository ingredientRepository ) {
 		super((id)-> ingredientRepository.findById(id));
 		
 		this.ingredientRepository = ingredientRepository;
@@ -37,7 +37,6 @@ public class IngredientApplicationImpl  extends ApplicationBase<Ingredient, UUID
 	public IngredientDTO add(CreateOrUpdateIngredientDTO dto) {
 		Ingredient  ingredient = this.modelMapper.map(dto, Ingredient.class);
 		ingredient.setId(UUID.randomUUID());
-		
 		ingredient.validate("name", ingredient.getName(), (name)->this.ingredientRepository.exists(name));
 		this.ingredientRepository.add(ingredient);
 		log.info(this.serializeObject(ingredient, "added"));

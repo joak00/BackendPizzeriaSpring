@@ -20,14 +20,13 @@ public class IngredientJPARepositoryImp implements IngredientRepository {
 	private final IngredientJPARepository ingredientJPARepository;
 	
 	@Autowired
-    public IngredientJPARepositoryImp(final IngredientJPARepository ingredientJPARepository) {
+    public IngredientJPARepositoryImp(IngredientJPARepository ingredientJPARepository) {
         this.ingredientJPARepository = ingredientJPARepository;
     }
 	
 	@Override
 	public void add(Ingredient ingredient) {
 		this.ingredientJPARepository.save(ingredient);
-		//capturar excepción 
 	}
 
 	@Override
@@ -38,7 +37,6 @@ public class IngredientJPARepositoryImp implements IngredientRepository {
 	@Override
 	public void delete(Ingredient ingredient) {
 		this.ingredientJPARepository.delete(ingredient);
-		
 	}
 
 	@Override
