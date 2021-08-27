@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import com.pizzeria.domain.userdomain.User;
 import com.pizzeria.domain.userdomain.UserProjection;
 import com.pizzeria.domain.userdomain.UserRepositoryWrite;
-import com.pizzeria.dtos.userdtos.CreateOrUpdateUserDTO;
-import com.pizzeria.dtos.userdtos.UserDTO;
+import com.pizzeria.dtos.userdto.CreateOrUpdateUserDTO;
+import com.pizzeria.dtos.userdto.UserDTO;
 import com.pizzeria.domain.userdomain.UserRepositoryRead;
 
 @Service
@@ -51,13 +51,33 @@ public class UserApplicationImp implements UserApplication {
     }
 
     @Override
-    public void update(UUID id, CreateOrUpdateUserDTO dto) {
-        User user = this.userRepositoryRead.findById(id).orElseThrow();
-        user.setName(dto.getName());
-        user.setLastname(dto.getLastname());
-        user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
-        this.userRepositoryWrite.update(user);
+    public UserDTO update(UUID id, CreateOrUpdateUserDTO dto) {
+        User userToUpdate = this.findById(id);
+        User userUpdated = modelMapper.map(dto, User.class);
+        userUpdated.setId(id);
+
+        if(userToUpdate.getEmail().equals(dto.getEmail())){
+            userUpdated.validate();
+        }else{
+            userUpdated.validate("email", userUpdated.getEmail(), (email) -> this.userWriteRepository.exists(email));
+        }
+
+        if (BCrypt.checkpw(dto.getPassword(), userToUpdate.getPassword())){
+            userUpdated.setPassword(userToUpdate.getPassword());
+        }else {
+            userUpdated.setPassword(BCrypt.hashpw(userUpdated.getPassword(), BCrypt.gensalt()));
+        }
+
+        this.userRepositoryWrite.update(userUpdated);
+        //logger.info(this.serializeObject(userUpdated, "update"));
+        return modelMapper.map(userUpdated, UserDTO.class);
+
+        // User user = this.userRepositoryRead.findById(id).orElseThrow();
+        // user.setName(dto.getName());
+        // user.setLastname(dto.getLastname());
+        // user.setEmail(dto.getEmail());
+        // user.setPassword(dto.getPassword());
+        // this.userRepositoryWrite.update(user);
     }
 
     @Override
