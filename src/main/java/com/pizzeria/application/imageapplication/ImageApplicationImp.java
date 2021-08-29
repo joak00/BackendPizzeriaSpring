@@ -10,11 +10,10 @@ import com.pizzeria.dtos.imagedto.ImageDTO;
 import com.pizzeria.infraestructure.imageinfraestructure.ImageRepository;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-
-import ch.qos.logback.classic.Logger;
 
 @Service
 public class ImageApplicationImp implements ImageApplication{
