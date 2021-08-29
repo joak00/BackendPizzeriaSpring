@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserJPARepository extends JpaRepository<User, UUID> {
         @Query("""
-        SELECT p.id as id, p.name as name, p.lastname as lastname, p.email as email, p.password as password, p.rol as 
+        SELECT p.id as id, p.name as name, p.lastname as lastname, p.email as email, p.password as password, p.rol as rol
         FROM User p 
         WHERE (:email is NULL OR email LIKE %:email%)""")
         List<UserProjection> findByCriteria(@Param("email") String email, Pageable pageable);
