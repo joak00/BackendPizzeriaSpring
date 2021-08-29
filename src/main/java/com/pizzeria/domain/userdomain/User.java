@@ -9,14 +9,17 @@ import javax.validation.constraints.NotNull;
 
 import com.pizzeria.core.EntityBase;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/JoaquinDev
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "users")
-public @Getter @Setter @NoArgsConstructor class User extends EntityBase {
+@Getter @Setter @NoArgsConstructor public class User extends EntityBase {
   
     @NotBlank
     @Column(unique = true)
@@ -26,12 +29,12 @@ public @Getter @Setter @NoArgsConstructor class User extends EntityBase {
     @Column
     private String lastname;
 
-    @NotNull
+    @NotBlank
     @Email
     @Column
     private String email;
 
-    @NotNull
+    @NotBlank
     @Column
     private String password;
 

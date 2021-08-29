@@ -11,15 +11,15 @@ import com.pizzeria.domain.userdomain.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-@Service
-public class UserRepositoryImp implements UserRepository {
+@Repository
+public class UserJPARepositoryImp implements UserRepository {
 
     private final UserJPARepository userJPARepository;
 
     @Autowired
-    public UserRepositoryImp(final UserJPARepository userJPARepository) {
+    public UserJPARepositoryImp(final UserJPARepository userJPARepository) {
         this.userJPARepository = userJPARepository;
     }
 
@@ -48,7 +48,11 @@ public class UserRepositoryImp implements UserRepository {
     public List<UserProjection> getAll(String name, int page, int size) {
         return this.userJPARepository.findByCriteria(
             name,
-            PageRequest.of(page, size, Sort.by("name").descending())
-        );
+            PageRequest.of(page, size, Sort.by("name").descending()));
+    }
+
+    @Override
+    public boolean exists(String name) {
+        return this.userJPARepository.exists(name);
     }
 }

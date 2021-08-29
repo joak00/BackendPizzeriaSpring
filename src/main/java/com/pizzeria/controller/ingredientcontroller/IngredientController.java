@@ -43,7 +43,7 @@ public class IngredientController {
     }
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
-    public ResponseEntity<?> get(@PathVariable UUID id){
+    public ResponseEntity<?> get(@Valid @PathVariable UUID id){
         IngredientDTO ingredientDTO = this.ingredientApplication.get(id);
         return ResponseEntity.ok(ingredientDTO);
     }
@@ -63,8 +63,7 @@ public class IngredientController {
     }
 
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
-    public ResponseEntity<?> update(@PathVariable UUID id, @RequestBody CreateOrUpdateIngredientDTO dto) {
-        //dto.validate(); CreateDTO debería extender de EntityBase?
+    public ResponseEntity<?> update(@PathVariable UUID id, @Valid @RequestBody CreateOrUpdateIngredientDTO dto) {
         this.ingredientApplication.update(id, dto);
         return ResponseEntity.ok(dto);
     }
