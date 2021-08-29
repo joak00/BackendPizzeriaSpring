@@ -12,87 +12,95 @@ import org.springframework.stereotype.Service;
 import com.pizzeria.core.ApplicationBase;
 import com.pizzeria.domain.userdomain.User;
 import com.pizzeria.domain.userdomain.UserProjection;
-import com.pizzeria.domain.userdomain.UserRepository;
+import com.pizzeria.domain.userdomain.UserRepositoryWrite;
+import com.pizzeria.domain.userdomain.UserRepositoryRead;
 import com.pizzeria.dtos.userdto.CreateOrUpdateUserDTO;
 import com.pizzeria.dtos.userdto.UserDTO;
 
 @Service
 public class UserApplicationImp extends ApplicationBase<User, UUID> implements UserApplication {
 
-    private final UserRepository userRepository;
-    private final Logger log;
+    private final UserRepositoryWrite userRepositoryWrite;
+    private final UserRepositoryRead userRepositoryRead;
     private final ModelMapper modelMapper;
+    private final Logger logger;
 
     @Autowired
-    public UserApplicationImp  (final ModelMapper modelMapper, 
-                                final Logger log, 
-                                final UserRepository userRepository) {
+    public UserApplicationImp  (final UserRepositoryWrite userRepositoryWrite, 
+                                final UserRepositoryRead userRepositoryRead, 
+                                final ModelMapper modelMapper,
+                                final Logger logger) {
 
-        super((id) -> userRepository.findById(id));
+        super((id) -> userRepositoryWrite.findById(id));
 
-        this.userRepository = userRepository;
-        this.log = log;
+        this.userRepositoryWrite = userRepositoryWrite;
+        this.userRepositoryRead = userRepositoryRead;
         this.modelMapper = modelMapper;
+        this.logger = logger;
     }
 
     @Override
     public UserDTO add(CreateOrUpdateUserDTO dto) {
-        User user = this.modelMapper.map(dto, User.class);
+
+        User user = modelMapper.map(dto, User.class);
         user.setId(UUID.randomUUID());
-        user.validate("name", user.getName(), (name) -> this.userRepository.exists(name));
-        this.userRepository.add(user);
-        log.info(this.serializeObject(user, "added"));
-        return this.modelMapper.map(user, UserDTO.class);
+        user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
+        user.validate("email", user.getEmail(), (email) -> this.userRepositoryWrite.exists(email));
+
+        this.userRepositoryWrite.add(user);
+        logger.info(this.serializeObject(user, "added"));
+
+        return modelMapper.map(user, UserDTO.class);
     }
 
     @Override
     public UserDTO get(UUID id) {
+
         User user = this.findById(id);
         return this.modelMapper.map(user, UserDTO.class);
     }
 
     @Override
     public UserDTO update(UUID id, CreateOrUpdateUserDTO dto) {
-        User userToUpdate = this.findById(id);
-        User userUpdated = modelMapper.map(dto, User.class);
-        userUpdated.setId(id);
 
-        if (userToUpdate.getEmail().equals(dto.getEmail())) {
-            userUpdated.validate();
-        } else {
-            userUpdated.validate("email", userUpdated.getEmail(), (email) -> this.userRepository.exists(email));
-        }
+        User user = this.findById(id);
+        User userUpdated = this.modelMapper.map(dto, User.class);
+        userUpdated.setId(user.getId());
+        userUpdated.setEmail(user.getEmail());
+        userUpdated.setRol(user.getRol());
 
-        if (BCrypt.checkpw(dto.getPassword(), userToUpdate.getPassword())) {
-            userUpdated.setPassword(userToUpdate.getPassword());
+        if (BCrypt.checkpw(userUpdated.getPassword(), user.getPassword())) {
+            userUpdated.setPassword(user.getPassword());
         } else {
             userUpdated.setPassword(BCrypt.hashpw(userUpdated.getPassword(), BCrypt.gensalt()));
         }
+        userUpdated.validate();
 
-        this.userRepository.update(userUpdated);
-        log.info(this.serializeObject(userUpdated, "update"));
+        this.userRepositoryWrite.update(userUpdated);
+        logger.info(this.serializeObject(userUpdated, "updated"));
+
         return modelMapper.map(userUpdated, UserDTO.class);
-
     }
 
     @Override
     public void delete(UUID id) {
+
         User user = this.findById(id);
-        this.userRepository.delete(user);
-        log.info(this.serializeObject(user, "deleted"));
+        this.userRepositoryWrite.delete(user);
+        logger.info(this.serializeObject(user, "deleted"));
     }
 
     @Override
-    public List<UserProjection> getAll(String name, int page, int size) {
-        return this.userRepository.getAll(name, page, size);
+    public List<UserProjection> getAll(String email, int page, int size) {
+        return this.userRepositoryRead.getAll(email, page, size);
     }
-
-    private String serializeObject(User user, String message) {
-
-        return String.format("User {id: %s, name: %s, lastname: %s, email: %s, password: %s, rol: %s} %s succesfully.", 
+	
+	private String serializeObject(User user, String message){
+        
+        return String.format("User {id: %s, name: %s, lastname: %s, email: %s, rol: %s} %s succesfully.",
                             user.getId(), user.getName(),
-                            user.getLastname(), user.getEmail(), 
-                            user.getPassword(), user.getRol().toString(), 
+                            user.getLastname(), user.getEmail(),
+                            user.getRol().toString(),
                             message);
     }
 
