@@ -12,8 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 public class CommentDTO {
     private UUID id;
@@ -25,4 +24,5 @@ public class CommentDTO {
     private int rating;
 
     private User user;
+    
 }
