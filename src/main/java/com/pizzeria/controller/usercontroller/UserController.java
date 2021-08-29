@@ -28,7 +28,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("api/v1/users")
