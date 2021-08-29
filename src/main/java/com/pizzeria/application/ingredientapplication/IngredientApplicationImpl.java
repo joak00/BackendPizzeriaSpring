@@ -16,7 +16,7 @@ import com.pizzeria.dtos.ingredientdto.CreateOrUpdateIngredientDTO;
 import com.pizzeria.dtos.ingredientdto.IngredientDTO;
 
 @Service
-public class IngredientApplicationImpl  extends ApplicationBase<Ingredient, UUID> implements IngredientApplication {
+public class IngredientApplicationImpl extends ApplicationBase<Ingredient, UUID> implements IngredientApplication {
 	
 	private final IngredientRepository ingredientRepository;
 	private final Logger log;
@@ -35,7 +35,7 @@ public class IngredientApplicationImpl  extends ApplicationBase<Ingredient, UUID
 	
 	@Override
 	public IngredientDTO add(CreateOrUpdateIngredientDTO dto) {
-		Ingredient  ingredient = this.modelMapper.map(dto, Ingredient.class);
+		Ingredient ingredient = this.modelMapper.map(dto, Ingredient.class);
 		ingredient.setId(UUID.randomUUID());
 		ingredient.validate("name", ingredient.getName(), (name)->this.ingredientRepository.exists(name));
 		this.ingredientRepository.add(ingredient);

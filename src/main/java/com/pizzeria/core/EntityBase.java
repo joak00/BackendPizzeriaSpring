@@ -1,26 +1,24 @@
 package com.pizzeria.core;
-
+ 
 import java.util.Set;
 import java.util.UUID;
-
-import javax.persistence.Column;
+ 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-
+ 
 import com.pizzeria.core.exceptions.BadRequestException;
 import com.pizzeria.core.functionalinterfaces.ExistsByField;
-
+ 
 import org.hibernate.annotations.Type;
 import org.springframework.validation.annotation.Validated;
-
+ 
 import lombok.Getter;
 import lombok.Setter;
-
-
+ 
 @Validated
 @MappedSuperclass
 public @Getter @Setter abstract class EntityBase {
@@ -28,14 +26,14 @@ public @Getter @Setter abstract class EntityBase {
     @Id
     @Type(type = "uuid-char")
     private UUID id;
-
+ 
     public void validate(){
         
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator= factory.getValidator();
         
         Set<ConstraintViolation<EntityBase>> violations = validator.validate(this);
-
+ 
         if (!violations.isEmpty()) {
             BadRequestException badRequestException = new BadRequestException();
             for(ConstraintViolation<EntityBase> violation : violations){
@@ -44,7 +42,7 @@ public @Getter @Setter abstract class EntityBase {
             throw badRequestException;
         }
     }
-
+ 
     public void validate(String key, String value, ExistsByField existsByField){
         
         this.validate();
@@ -54,19 +52,19 @@ public @Getter @Setter abstract class EntityBase {
             throw badRequestException;
         }
     }   
-
+ 
     @Override
     public boolean equals (Object obj) {
-
+ 
         if (!(obj instanceof EntityBase)){
             return false;
         }
-
+ 
         EntityBase tmpEntity = (EntityBase) obj;
-
+ 
         return this.id.equals(tmpEntity.id);
     }
-
+ 
     @Override
     public int hashCode(){
         return this.id.hashCode();

@@ -26,8 +26,9 @@ public class BackendPizzeriaSpringApplication {
 			http.csrf().disable()
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/api/v1/users").permitAll();/*
-				.anyRequest().authenticated(); */
+				.antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/v1/users").permitAll()
+				.anyRequest().authenticated();
 		}
 	}
 

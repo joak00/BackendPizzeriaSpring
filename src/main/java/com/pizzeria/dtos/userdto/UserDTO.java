@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-public @Getter @Setter @NoArgsConstructor class UserDTO implements Serializable{
+@Getter @Setter @NoArgsConstructor public class UserDTO implements Serializable {
     private UUID id;
     private String name;
     private String lastname;
