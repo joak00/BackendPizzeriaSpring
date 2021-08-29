@@ -9,10 +9,6 @@ import javax.validation.constraints.NotNull;
 
 import com.pizzeria.core.EntityBase;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/JoaquinDev
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

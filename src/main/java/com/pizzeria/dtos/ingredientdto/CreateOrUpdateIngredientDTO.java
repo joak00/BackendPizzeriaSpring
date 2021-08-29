@@ -3,16 +3,8 @@ package com.pizzeria.dtos.ingredientdto;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotBlank;
-<<<<<<< HEAD
-
 import javax.validation.constraints.NotNull;
 
-
-
-=======
-import javax.validation.constraints.NotNull;
-
->>>>>>> origin/JoaquinDev
 import org.springframework.validation.annotation.Validated;
 
 import lombok.Getter;

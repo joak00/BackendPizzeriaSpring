@@ -28,20 +28,11 @@ public @Getter @Setter abstract class EntityBase {
     private UUID id;
  
     public void validate(){
-<<<<<<< HEAD
-
-=======
         
->>>>>>> origin/JoaquinDev
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator= factory.getValidator();
         
         Set<ConstraintViolation<EntityBase>> violations = validator.validate(this);
-<<<<<<< HEAD
-
-        if (!violations.isEmpty()) {
-        throw new ConstraintViolationException(violations);
-=======
  
         if (!violations.isEmpty()) {
             BadRequestException badRequestException = new BadRequestException();
@@ -49,7 +40,6 @@ public @Getter @Setter abstract class EntityBase {
                 badRequestException.addException(violation.getPropertyPath().toString(), violation.getMessage());
             }
             throw badRequestException;
->>>>>>> origin/JoaquinDev
         }
     }
  

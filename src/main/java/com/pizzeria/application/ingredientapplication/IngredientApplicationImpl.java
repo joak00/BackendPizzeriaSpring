@@ -12,10 +12,6 @@ import com.pizzeria.core.ApplicationBase;
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.ingredientdomain.IngredientProjection;
 import com.pizzeria.domain.ingredientdomain.IngredientRepository;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/JoaquinDev
 import com.pizzeria.dtos.ingredientdto.CreateOrUpdateIngredientDTO;
 import com.pizzeria.dtos.ingredientdto.IngredientDTO;
 
