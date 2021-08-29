@@ -23,10 +23,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "comments")
-@Getter
-@Setter
-@NoArgsConstructor
-public class Comment extends EntityBase {
+@Getter @Setter @NoArgsConstructor public class Comment extends EntityBase {
 
     @NotBlank
     @Column(nullable = false, name = "text")
