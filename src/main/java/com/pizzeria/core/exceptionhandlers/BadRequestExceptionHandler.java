@@ -21,10 +21,7 @@ public class BadRequestExceptionHandler {
 
     @ExceptionHandler(value = {BadRequestException.class})
     protected ResponseEntity<Object> handleConflict(BadRequestException ex, WebRequest request) {
-
-        
-        logger.warn(String.format("%s , StackTrace: %s", ex.getMessage(), ex.getStackTrace().toString()));
-
+        logger.warn(String.format("%s , StackTrace: %s", ex.getMessage(), ex.getStackTrace()));
         return ResponseEntity.status(ex.getCode()).body(ex.getExceptions());
     }
 }

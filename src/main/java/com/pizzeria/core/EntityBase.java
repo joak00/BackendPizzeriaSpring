@@ -27,7 +27,6 @@ public @Getter @Setter abstract class EntityBase {
     
     @Id
     @Type(type = "uuid-char")
-    @Column(columnDefinition = "binary(16)")
     private UUID id;
 
     public void validate(){

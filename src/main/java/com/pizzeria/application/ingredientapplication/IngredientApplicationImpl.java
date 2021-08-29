@@ -39,7 +39,7 @@ public class IngredientApplicationImpl  extends ApplicationBase<Ingredient, UUID
 		ingredient.setId(UUID.randomUUID());
 		ingredient.validate("name", ingredient.getName(), (name)->this.ingredientRepository.exists(name));
 		this.ingredientRepository.add(ingredient);
-		log.info(this.serializeObject(ingredient, "added"));
+		log.info(this.serializeObject(ingredient, " added."));
 		return this.modelMapper.map(ingredient,IngredientDTO.class);  
 	}
 	
@@ -59,14 +59,14 @@ public class IngredientApplicationImpl  extends ApplicationBase<Ingredient, UUID
 			ingredient.validate("name", ingredient.getName(), (name)-> this.ingredientRepository.exists(name));
 		}
 		this.ingredientRepository.update(ingredient);
-		log.info(this.serializeObject(ingredient, "updated"));
+		log.info(this.serializeObject(ingredient, " updated."));
 	}
 	
 	@Override
 	public void delete(UUID id) {
 		Ingredient ingredient = this.findById(id);
 		this.ingredientRepository.delete(ingredient);
-		log.info(this.serializeObject(ingredient, "deleted"));
+		log.info(this.serializeObject(ingredient, " deleted."));
 	}
 	
 	@Override

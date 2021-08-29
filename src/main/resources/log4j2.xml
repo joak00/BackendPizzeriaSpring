@@ -8,7 +8,7 @@
         <Console name="ConsolePrint" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy.MM.dd HH:mm:ss z} %t %-7level %class{36} %L %M - %msg%xEx%n"/>
         </Console>
-        <RollingFile name="RollingFileDebug" fileName="${logFilePath}/${logFileName}-debug.log"
+        <RollingFile name="RollingFileDebug" fileName="C:\pizzerialogs\debuglogs.log"
                      filePattern="${logFilePath}/$${date:yyyy-MM}/${logFileName}-%d{yyyy-MM-dd}_%i.log.gz">
             <PatternLayout pattern="%d{yyyy.MM.dd HH:mm:ss z}  %msg%xEx%n"/> 
             <Filters> 
@@ -21,7 +21,7 @@
             </Policies>
         </RollingFile>
 
-        <RollingFile name="RollingFileInfo" fileName="${logFilePath}/${logFileName}-info.log"
+        <RollingFile name="RollingFileInfo" fileName="C:\pizzerialogs\infologs.log"
                      filePattern="${logFilePath}/$${date:yyyy-MM}/${logFileName}-%d{yyyy-MM-dd}_%i.log.gz">
             <Filters>
                 <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
@@ -34,7 +34,7 @@
             </Policies>
         </RollingFile>
 
-        <RollingFile name="RollingFileError" fileName="${logFilePath}/${logFileName}-error.log"
+        <RollingFile name="RollingFileError" fileName="C:\pizzerialogs\errorlogs.log"
                      filePattern="${logFilePath}/$${date:yyyy-MM}/${logFileName}-%d{yyyy-MM-dd}_%i.log.gz">
             <Filters>
                 <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
