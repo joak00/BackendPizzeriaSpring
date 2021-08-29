@@ -1,4 +1,4 @@
-package com.pizzeria.application.pizzaapplication;
+/*package com.pizzeria.application.pizzaapplication;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import com.pizzeria.domain.commentdomain.Comment;
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.ingredientdomain.IngredientRepository;
-import com.pizzeria.domain.ingredientdomain.IngredientRepositoryRead;
 import com.pizzeria.domain.pizzadomain.Pizza;
 import com.pizzeria.domain.pizzadomain.PizzaIngredientProjection;
 import com.pizzeria.domain.pizzadomain.PizzaProjection;
@@ -109,4 +108,4 @@ public class PizzaApplicationImp implements PizzaApplication{
     public PizzaIngredientProjection getPizzaInfo(UUID id) {
         return this.pizzaRepository.getPizzaInfo(id);
     }
-}
+}*/

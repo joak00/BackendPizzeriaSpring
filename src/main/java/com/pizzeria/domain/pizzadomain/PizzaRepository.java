@@ -1,4 +1,4 @@
-package com.pizzeria.domain.pizzadomain;
+/*package com.pizzeria.domain.pizzadomain;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,4 +12,4 @@ public interface PizzaRepository {
     public void delete(Pizza pizza);
     public List<PizzaProjection> getAll(String name, int page, int size);
     public PizzaIngredientProjection getPizzaInfo(UUID id);
-}
+}*/

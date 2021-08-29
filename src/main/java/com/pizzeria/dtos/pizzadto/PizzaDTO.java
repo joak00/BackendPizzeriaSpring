@@ -1,4 +1,4 @@
-package com.pizzeria.dtos.pizzadto;
+/*package com.pizzeria.dtos.pizzadto;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -12,4 +12,4 @@ public class PizzaDTO {
     public BigDecimal price;
     public String description;
     public Set<PizzaIngredientDTO> ingredients = new HashSet<PizzaIngredientDTO>();
-}
+}*/

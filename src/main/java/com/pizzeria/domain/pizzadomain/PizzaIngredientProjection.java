@@ -1,4 +1,4 @@
-package com.pizzeria.domain.pizzadomain;
+/*package com.pizzeria.domain.pizzadomain;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -43,4 +43,4 @@ public interface PizzaIngredientProjection {
         public int getScore();
 
     }
-}
+}*/

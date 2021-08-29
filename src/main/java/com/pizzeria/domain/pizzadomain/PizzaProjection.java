@@ -1,4 +1,4 @@
-package com.pizzeria.domain.pizzadomain;
+/*package com.pizzeria.domain.pizzadomain;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -16,4 +16,4 @@ public interface PizzaProjection {
     public interface Image {
         public String getPublic_id();
     };
-}
+}*/

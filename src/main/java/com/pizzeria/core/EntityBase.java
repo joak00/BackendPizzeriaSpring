@@ -26,11 +26,14 @@ public @NoArgsConstructor @Getter @Setter abstract class EntityBase {
     private UUID id;
     
     public void validate(){
+
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator= factory.getValidator();
         Set<ConstraintViolation<EntityBase>> violations = validator.validate(this);
+
         if (!violations.isEmpty()) {
-        throw new ConstraintViolationException(violations);}
+        throw new ConstraintViolationException(violations);
+        }
     }
     
     @Override

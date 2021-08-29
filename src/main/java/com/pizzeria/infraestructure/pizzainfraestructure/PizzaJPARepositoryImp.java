@@ -1,4 +1,4 @@
-package com.pizzeria.infraestructure.pizzainfraestructure;
+/*package com.pizzeria.infraestructure.pizzainfraestructure;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,6 @@ import com.pizzeria.domain.pizzadomain.Pizza;
 import com.pizzeria.domain.pizzadomain.PizzaIngredientProjection;
 import com.pizzeria.domain.pizzadomain.PizzaProjection;
 import com.pizzeria.domain.pizzadomain.PizzaRepository;
-import com.pizzeria.infraestructure.pizzainfraestructure.PizzaJPARepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -58,4 +57,4 @@ public class PizzaJPARepositoryImp implements PizzaRepository{
        );
     }
     
-}
+}*/

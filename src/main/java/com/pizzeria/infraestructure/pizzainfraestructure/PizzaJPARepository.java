@@ -1,4 +1,4 @@
-package com.pizzeria.infraestructure.pizzainfraestructure;
+/*package com.pizzeria.infraestructure.pizzainfraestructure;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,4 +24,4 @@ public interface PizzaJPARepository extends JpaRepository<Pizza, UUID>{
         @Param("id") UUID id
     );
     
-}
+}*/

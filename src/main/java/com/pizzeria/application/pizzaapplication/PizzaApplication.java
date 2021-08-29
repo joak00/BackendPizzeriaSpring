@@ -1,4 +1,4 @@
-package com.pizzeria.application.pizzaapplication;
+/*package com.pizzeria.application.pizzaapplication;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,4 +29,4 @@ public interface PizzaApplication {
     public List<PizzaProjection> getAll(String name, int page, int size);
 
     public PizzaIngredientProjection getPizzaInfo(UUID id);
-}
+}*/
