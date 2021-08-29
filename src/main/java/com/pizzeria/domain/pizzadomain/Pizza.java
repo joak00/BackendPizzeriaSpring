@@ -18,8 +18,6 @@ import com.pizzeria.core.EntityBase;
 import com.pizzeria.domain.commentdomain.Comment;
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 
-import org.apache.http.entity.FileEntity;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
