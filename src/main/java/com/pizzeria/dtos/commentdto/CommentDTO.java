@@ -1,22 +1,24 @@
 package com.pizzeria.dtos.commentdto;
 
 import java.util.Date;
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.UUID;
-
-import com.pizzeria.domain.userdomain.User;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @NoArgsConstructor public class CommentDTO {
+@Getter @Setter @NoArgsConstructor public class CommentDTO implements Serializable{
     private UUID id;
 
     private String text;
 
-    private Date date;
+    // private Date date;
 
-    private int rating;
+    private BigDecimal rating;
 
-    private User user;
+    private UUID user;
+
+    private UUID pizza;
 }

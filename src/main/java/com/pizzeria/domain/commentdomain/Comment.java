@@ -1,6 +1,6 @@
 package com.pizzeria.domain.commentdomain;
 
-import java.util.Date;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -29,13 +29,13 @@ import lombok.Setter;
     @Column(nullable = false, name = "text")
     private String text;
 
-    @NotNull
-    @Column(nullable = false, name = "date")
-    private Date date;
+    // @NotNull
+    // @Column(nullable = false, name = "date")
+    // private Date date;
 
     @NotNull
     @Column(nullable = false, name = "rating")
-    private int rating;
+    private BigDecimal rating;
 
    
     @Type(type = "uuid-char")
@@ -48,10 +48,8 @@ import lombok.Setter;
     @Column(name="pizza_id", nullable = false)
     private UUID pizzaId;
 
-    
     private @ManyToOne @JoinColumn (name ="user_id", insertable = false, updatable=false) User user;
 
-    @NotNull
     private @ManyToOne @JoinColumn (name="pizza_id", insertable = false, updatable=false) Pizza pizza;
 
 }
