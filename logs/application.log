@@ -1037,3 +1037,79 @@ Using generated security password: 7f79785e-5f4b-43c1-a9a7-a031772e8f63
 
 2021-08-30 09:30:07 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35dd717, org.springframework.security.web.context.SecurityContextPersistenceFilter@41971ee6, org.springframework.security.web.header.HeaderWriterFilter@2682bd22, org.springframework.security.web.authentication.logout.LogoutFilter@335f9a6a, com.pizzeria.security.JWTAuthorizationFilter@51ef9ef1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ec3945f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d9b5508, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5644f8dd, org.springframework.security.web.session.SessionManagementFilter@678413d2, org.springframework.security.web.access.ExceptionTranslationFilter@4ae6a9b2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@8e42df]
 2021-08-30 09:30:07 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path ''
+2021-08-30 09:30:07 [restartedMain] INFO  c.p.BackendPizzeriaSpringApplication - Started BackendPizzeriaSpringApplication in 3.812 seconds (JVM running for 209.194)
+2021-08-30 09:30:07 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-08-30 09:31:41 [http-nio-9999-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-30 09:31:41 [http-nio-9999-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-30 09:31:41 [http-nio-9999-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-30 09:31:42 [http-nio-9999-exec-2] INFO  c.p.a.u.UserApplicationImp - User {id: e5cf5590-dea5-4532-b508-db2dbdf1f09b, name: Sergia, lastname: Larrion, email: sergio@gmail.com, rol: ROL_USER} added succesfully.
+2021-08-30 09:32:54 [Thread-13] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-30 09:32:54 [Thread-13] INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-30 09:32:55 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2021-08-30 09:32:55 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2021-08-30 09:32:55 [restartedMain] INFO  c.p.BackendPizzeriaSpringApplication - Starting BackendPizzeriaSpringApplication using Java 16.0.2 on LES009350 with PID 17616 (C:\Users\slarrion\Desktop\Documentos Capgemini\Documentos programacion\PROYECTOS\BackendPizzeriaSpring\target\classes started by slarrion in c:\Users\slarrion\Desktop\Documentos Capgemini\Documentos programacion\PROYECTOS\BackendPizzeriaSpring)
+2021-08-30 09:32:55 [restartedMain] INFO  c.p.BackendPizzeriaSpringApplication - No active profile set, falling back to default profiles: default
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 3 JPA repository interfaces.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.pizzeria.infraestructure.ingredientinfraestructure.IngredientJPARepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.pizzeria.infraestructure.userinfraestructure.UserJPARepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 1 Redis repository interfaces.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2021-08-30 09:32:55 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-30 09:32:55 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-30 09:32:55 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 618 ms
+2021-08-30 09:32:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2021-08-30 09:32:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2021-08-30 09:32:55 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/PIZZERIA'
+2021-08-30 09:32:56 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-30 09:32:56 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-30 09:32:56 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-30 09:32:56 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-30 09:32:56 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-08-30 09:32:57 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-30 09:32:57 [restartedMain] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: c4a6db8f-1033-4eef-98f3-78e7760cd572
+
+2021-08-30 09:32:57 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27388e42, org.springframework.security.web.context.SecurityContextPersistenceFilter@458a7438, org.springframework.security.web.header.HeaderWriterFilter@595a45bd, org.springframework.security.web.authentication.logout.LogoutFilter@6cdd0829, com.pizzeria.security.JWTAuthorizationFilter@74017b4e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7072f5c1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b0e21df, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65fe3b01, org.springframework.security.web.session.SessionManagementFilter@1c23a98e, org.springframework.security.web.access.ExceptionTranslationFilter@7ce9349c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41d541c0]
+2021-08-30 09:32:57 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path ''
+2021-08-30 09:32:57 [restartedMain] INFO  c.p.BackendPizzeriaSpringApplication - Started BackendPizzeriaSpringApplication in 2.122 seconds (JVM running for 379.104)
+2021-08-30 09:32:57 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-08-30 09:33:05 [restartedMain] INFO  c.p.BackendPizzeriaSpringApplication - Starting BackendPizzeriaSpringApplication using Java 16.0.2 on LES009350 with PID 6016 (C:\Users\slarrion\Desktop\Documentos Capgemini\Documentos programacion\PROYECTOS\BackendPizzeriaSpring\target\classes started by slarrion in c:\Users\slarrion\Desktop\Documentos Capgemini\Documentos programacion\PROYECTOS\BackendPizzeriaSpring)
+2021-08-30 09:33:05 [restartedMain] INFO  c.p.BackendPizzeriaSpringApplication - No active profile set, falling back to default profiles: default
+2021-08-30 09:33:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-08-30 09:33:05 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 116 ms. Found 3 JPA repository interfaces.
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.pizzeria.infraestructure.ingredientinfraestructure.IngredientJPARepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.pizzeria.infraestructure.userinfraestructure.UserJPARepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2021-08-30 09:33:07 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 1 Redis repository interfaces.
+2021-08-30 09:33:08 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9999 (http)
+2021-08-30 09:33:08 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-30 09:33:08 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-30 09:33:08 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-30 09:33:08 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3310 ms
+2021-08-30 09:33:08 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-08-30 09:33:09 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-08-30 09:33:09 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/PIZZERIA'
+2021-08-30 09:33:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-30 09:33:10 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-08-30 09:33:10 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-30 09:33:10 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-30 09:33:11 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-30 09:33:11 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-30 09:33:12 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-08-30 09:33:13 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-30 09:33:13 [restartedMain] INFO  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 331d60fb-3095-4823-8ffc-700163967ddb
+
+2021-08-30 09:33:13 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5721a3bd, org.springframework.security.web.context.SecurityContextPersistenceFilter@68db966b, org.springframework.security.web.header.HeaderWriterFilter@65315c94, org.springframework.security.web.authentication.logout.LogoutFilter@10224222, com.pizzeria.security.JWTAuthorizationFilter@15ccf7a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b93db46, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ef10824, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c0d2b84, org.springframework.security.web.session.SessionManagementFilter@18227c1b, org.springframework.security.web.access.ExceptionTranslationFilter@4f40da86, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@44bc94cf]
+2021-08-30 09:33:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9999 (http) with context path ''
