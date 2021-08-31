@@ -10,9 +10,4 @@ public interface CommentApplication {
 
     public CommentDTO get(UUID id);
 
-    // public CommentDTO update(UUID id, CreateOrUpdateCommentDTO dto);
-
-    // public void delete(UUID id);
-
-    // public List<CommentProjection> getAll(String text,  int page, int size);
 }
