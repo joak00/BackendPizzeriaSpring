@@ -37,7 +37,7 @@ public class ImageController {
         // Cloudinary cloudinary=new Cloudinary();
         // File fileCloudinary=imageApplicationImp.convert(file);
         // Map result= cloudinary.uploader().upload(fileCloudinary, ObjectUtils.emptyMap());
-        // String format="png";
+        // String format="jpg";
         // Transformation transformation= new Transformation().crop("fill");
 
         CreateOrUpdateImageDTO dto = new CreateOrUpdateImageDTO();
