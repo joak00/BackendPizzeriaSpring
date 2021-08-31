@@ -1,9 +1,10 @@
 package com.pizzeria.dtos.commentdto;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import com.pizzeria.domain.userdomain.User;
 
 import org.springframework.validation.annotation.Validated;
  
@@ -17,7 +18,9 @@ import lombok.Setter;
     @NotBlank
     private String text;
     @NotNull
-    private int rating;
-    
-    private User user;
+    private BigDecimal rating;
+    @NotNull
+    private UUID user;
+    @NotNull
+    private UUID pizza;
 }

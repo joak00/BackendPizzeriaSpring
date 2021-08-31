@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Pom y Log ###
+*.xml
+*.log
+application.properties

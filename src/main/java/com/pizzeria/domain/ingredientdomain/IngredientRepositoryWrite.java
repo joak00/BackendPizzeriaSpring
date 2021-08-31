@@ -1,5 +1,6 @@
 package com.pizzeria.domain.ingredientdomain;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import com.pizzeria.core.functionalinterfaces.ExistsByField;
@@ -12,5 +13,7 @@ public interface IngredientRepositoryWrite extends FindById<Ingredient, UUID>, E
 	public void update(Ingredient ingredient);
 
 	public void delete(Ingredient ingredient);
+
+	public Optional<Ingredient> findById(UUID id);
 
 }
