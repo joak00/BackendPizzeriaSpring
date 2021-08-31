@@ -9,8 +9,9 @@ import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.pizzadomain.Pizza;
 import com.pizzeria.domain.pizzadomain.PizzaProjection;
 import com.pizzeria.domain.pizzadomain.PizzaRepository;
-import com.pizzeria.dtos.pizzadto.CreateOrUpdatePizzaDTO;
+import com.pizzeria.dtos.pizzadto.CreatePizzaDTO;
 import com.pizzeria.dtos.pizzadto.PizzaDTO;
+import com.pizzeria.dtos.pizzadto.UpdatePizzaDTO;
 
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -27,9 +28,10 @@ public class PizzaApplicationImp extends ApplicationBase<Pizza, UUID> implements
     
     @Autowired
     public PizzaApplicationImp(final PizzaRepository pizzaRepository,
-                                final IngredientApplicationImpl ingredientApplicationImpl, 
-                                final ModelMapper modelMapper,
-                                final Logger logger) {
+                               final IngredientApplicationImpl ingredientApplicationImpl, 
+                               final ModelMapper modelMapper,
+                               final Logger logger
+                               ) {
         
         super((id) -> pizzaRepository.findById(id));
         
@@ -40,7 +42,7 @@ public class PizzaApplicationImp extends ApplicationBase<Pizza, UUID> implements
     }
     
     @Override
-    public PizzaDTO add(CreateOrUpdatePizzaDTO dto) {
+    public PizzaDTO add(CreatePizzaDTO dto) {
         Pizza pizza = this.modelMapper.map(dto, Pizza.class);
         pizza.setId(UUID.randomUUID());
         pizza.validate("name", pizza.getName(), (name)-> this.pizzaRepository.exists(name));
@@ -66,21 +68,18 @@ public class PizzaApplicationImp extends ApplicationBase<Pizza, UUID> implements
 	}
 
     @Override
-    public void update(UUID id, CreateOrUpdatePizzaDTO dto) {
-        Pizza pizza = modelMapper.map(dto, Pizza.class);
+    public PizzaDTO update(UUID id, UpdatePizzaDTO dto) {
+        Pizza pizza = this.findById(id);
 		pizza.setId(id);
 		if(this.pizzaRepository.exists(pizza.getName())) {
 			pizza.validate();
 		} else {
 			pizza.validate("name", pizza.getName(), (name)-> this.pizzaRepository.exists(name));
 		}
-        for (UUID ingredientId : dto.getIngredients()) {
-            Ingredient ingredient = this.modelMapper.map(ingredientApplicationImpl.get(ingredientId), Ingredient.class);
-            pizza.addIngredient(ingredient);
-        }
-        pizza.setPrice(pizza.calculatePrice());
+        pizza.setName(dto.getName());
 		this.pizzaRepository.update(pizza);
 		logger.info(this.serializeObject(pizza, " updated"));
+        return this.modelMapper.map(pizza, PizzaDTO.class);
     }
 
     @Override

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.pizzeria.core.functionalinterfaces.ExistsByField;
 import com.pizzeria.core.functionalinterfaces.FindById;
+import com.pizzeria.domain.ingredientdomain.Ingredient;
 
 public interface PizzaRepositoryWrite extends FindById<Pizza, UUID>, ExistsByField{
    

@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.UUID;
 
 import com.pizzeria.domain.pizzadomain.PizzaProjection;
-import com.pizzeria.dtos.pizzadto.CreateOrUpdatePizzaDTO;
+import com.pizzeria.dtos.pizzadto.CreatePizzaDTO;
 import com.pizzeria.dtos.pizzadto.PizzaDTO;
+import com.pizzeria.dtos.pizzadto.UpdatePizzaDTO;
 
 public interface PizzaApplication {
-    public PizzaDTO add(CreateOrUpdatePizzaDTO dto);
+    public PizzaDTO add(CreatePizzaDTO dto);
     public PizzaDTO get(UUID id);
-    public void update (UUID id, CreateOrUpdatePizzaDTO dto);
+    public PizzaDTO update (UUID id, UpdatePizzaDTO dto);
 	public void delete (UUID id);
     public List<PizzaProjection> getAll(String name, int page, int size);
 

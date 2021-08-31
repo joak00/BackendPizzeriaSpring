@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.pizzeria.domain.ingredientdomain.Ingredient;
 import com.pizzeria.domain.pizzadomain.Pizza;
 import com.pizzeria.domain.pizzadomain.PizzaProjection;
 import com.pizzeria.domain.pizzadomain.PizzaRepository;
@@ -43,7 +44,7 @@ public class PizzaJPARepositoryImp implements PizzaRepository {
         return this.pizzaJPARepository.findByCriteria(name, 
 				PageRequest.of(page, size, Sort.by("name").descending()));
     }
-    
+ 
     @Override
     public boolean exists(String name) {
         return this.pizzaJPARepository.exists(name);

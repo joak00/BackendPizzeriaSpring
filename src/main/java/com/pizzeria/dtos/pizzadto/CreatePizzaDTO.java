@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Validated
-public @Getter @Setter class CreateOrUpdatePizzaDTO {
+public @Getter @Setter class CreatePizzaDTO {
 
     @NotBlank
     public String name;

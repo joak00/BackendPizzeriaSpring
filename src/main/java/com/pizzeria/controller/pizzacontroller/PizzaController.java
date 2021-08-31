@@ -6,8 +6,9 @@ import javax.validation.Valid;
 
 import com.pizzeria.application.pizzaapplication.PizzaApplication;
 
-import com.pizzeria.dtos.pizzadto.CreateOrUpdatePizzaDTO;
+import com.pizzeria.dtos.pizzadto.CreatePizzaDTO;
 import com.pizzeria.dtos.pizzadto.PizzaDTO;
+import com.pizzeria.dtos.pizzadto.UpdatePizzaDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -35,7 +36,7 @@ public class PizzaController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> create(@Valid @RequestBody final CreateOrUpdatePizzaDTO dto){
+    public ResponseEntity<?> create(@Valid @RequestBody final CreatePizzaDTO dto){
         PizzaDTO PizzaDTO = this.pizzaApplication.add(dto);
         return ResponseEntity.status(201).body(PizzaDTO);
     }
@@ -61,9 +62,9 @@ public class PizzaController {
     }
 
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
-    public ResponseEntity<?> update(@PathVariable UUID id, @Valid @RequestBody CreateOrUpdatePizzaDTO dto) {
-        this.pizzaApplication.update(id, dto);
-        return ResponseEntity.ok(dto);
+    public ResponseEntity<?> update(@PathVariable UUID id, @Valid @RequestBody UpdatePizzaDTO dto) {
+        PizzaDTO pizzaDTO = this.pizzaApplication.update(id, dto);
+        return ResponseEntity.ok(pizzaDTO);
     }
 
 }
