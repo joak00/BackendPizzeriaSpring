@@ -3,6 +3,8 @@ package com.pizzeria.domain.pizzadomain;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import com.pizzeria.domain.imagedomain.Image;
+
 
 
 public interface PizzaProjection {
@@ -13,6 +15,6 @@ public interface PizzaProjection {
 
 	public BigDecimal getPrice();
 
-    //public Image getImage();
+    public Image getImage();
 
 }

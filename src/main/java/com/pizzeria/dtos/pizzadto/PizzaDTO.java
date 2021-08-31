@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import com.pizzeria.domain.imagedomain.Image;
 import com.pizzeria.domain.ingredientdomain.Ingredient;
 
 import lombok.Getter;
@@ -17,7 +18,7 @@ public @Getter @Setter @NoArgsConstructor class PizzaDTO {
     
     private String name;
 
-    //private Image image;
+    private Image image;
 
     private BigDecimal price;
 

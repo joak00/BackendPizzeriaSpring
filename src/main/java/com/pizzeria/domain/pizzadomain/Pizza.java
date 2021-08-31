@@ -31,9 +31,9 @@ import lombok.Setter;
     @Column(nullable = false, name ="name", unique = true)
     private  String name;
     
-    /*@Embedded
+    @Embedded
     @Column(name = "image")
-    private Image image;*/
+    private Image image;
 
     @DecimalMin(value = "0.0", inclusive = false)
     @Column(nullable = false, name ="price")
