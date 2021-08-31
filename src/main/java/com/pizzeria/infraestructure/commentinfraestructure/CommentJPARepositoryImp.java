@@ -21,30 +21,12 @@ public class CommentJPARepositoryImp implements CommentRepositoryWrite{
     @Override
     public void add(Comment comment) {
         this.commentJPARepository.save(comment);
-        //controlar excepción, no validar
     }
 
     @Override
     public Optional<Comment> findById(UUID id) {
         return this.commentJPARepository.findById(id);
     }
-
-    // @Override
-    // public void update(Comment comment) {
-    //     this.commentJPARepository.save(comment);
-    // }
-
-    // @Override
-    // public void delete(Comment comment) {
-    //     this.commentJPARepository.save(comment);
-    // }
-
-    // @Override
-    // public List<CommentProjection> getAll(String text, int page, int size) {
-    //     return this.commentJPARepository.findByCriteria(
-    //         text,
-    //         PageRequest.of(page, size, Sort.by("text").descending()));
-    // }
 
     @Override
     public boolean exists(String field) {

@@ -11,7 +11,4 @@ public interface CommentRepositoryWrite extends FindById<Comment, UUID>, ExistsB
 
     public Optional<Comment> findById(UUID id);
 
-    // public void update(Comment comment);
-
-    // public void delete(Comment comment);
 }
