@@ -18,7 +18,7 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor public class User extends EntityBase {
   
     @NotBlank
-    @Column(unique = true)
+    @Column
     private String name;
 
     @NotBlank
@@ -27,7 +27,7 @@ import lombok.Setter;
 
     @NotBlank
     @Email
-    @Column
+    @Column(unique = true)
     private String email;
 
     @NotBlank
