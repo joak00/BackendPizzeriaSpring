@@ -8,6 +8,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.pizzeria.domain.imagedomain.Image;
+
 import org.springframework.validation.annotation.Validated;
 
 import lombok.Getter;
@@ -22,5 +24,7 @@ public @Getter @Setter class CreatePizzaDTO {
     @NotEmpty
     public Set<UUID> ingredients;
 
+    @NotNull
+    private Image image;
 
 }
