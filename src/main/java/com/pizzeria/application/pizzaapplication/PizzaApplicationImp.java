@@ -50,6 +50,7 @@ public class PizzaApplicationImp extends ApplicationBase<Pizza, UUID> implements
             Ingredient ingredient = this.modelMapper.map(ingredientApplicationImpl.get(ingredientId), Ingredient.class);
             pizza.addIngredient(ingredient);
         }
+        pizza.setImage(dto.getImage());
         pizza.setPrice(pizza.calculatePrice());
         this.pizzaRepository.add(pizza);
         this.logger.info(this.serializeObject(pizza, " added"));
